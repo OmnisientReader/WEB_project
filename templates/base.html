@@ -1,0 +1,84 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стоматология Жемчуг</title>
+    <link rel="stylesheet" href="/static/mutual.css">
+    <link rel="stylesheet" href="/static/cart.css">
+    <link rel="stylesheet" href="/static/profile.css">
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/contacts.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/specialists.css">
+    <link rel="stylesheet" href="/static/reviews.css">
+    <link rel="stylesheet" href="/static/services.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <a href="/" class="logo">
+                <img src="https://gemchug93.ru/images/top-logo.svg" alt="Жемчуг">
+                <span class="logo-text">Лечим зубы с 1993 года!</span>
+            </a>
+            <div class="contacts">
+                <div>Москва, ул. Мещерякова, 1/19</div>
+                <div>+7 (000) 000-00-00</div>
+            </div>
+            <div class="auth-buttons">
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('profile.profile') }}" class="user-widget">
+                        <img src="{{ session.get('user_avatar', '/static/default-avatar.png') }}" alt="Profile" class="user-avatar">
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('auth.login') }}" class="btn">Войти</a>
+                    <a href="{{ url_for('register.registration_form') }}" class="btn">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="/reviews">О КЛИНИКЕ</a></li>
+            <li><a href="/specialists">ВРАЧИ</a></li>
+            <li><a href="/services">УСЛУГИ</a></li>
+            <li><a href="/contacts">КОНТАКТЫ</a></li>
+            <li><a href="{{ url_for('cart.cart') }}">КОРЗИНА</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 3: Additional Information -->
+            <div class="footer-column info">
+                <img src="https://gemchug93.ru/images/top-logo.svg" alt="Жемчуг">
+                <p>© 1993 — 2024 Сайт носит информационный характер и не является публичной офертой. Возможны противопоказания. Необходимо проконсультироваться со специалистом. Все права защищены. При использовании любых материалов сайта, включая графику и тексты, активная ссылка на gemchug93.ru обязательна</p>
+            </div>
+            <!-- Column 1: Contact Information -->
+            <div class="footer-column contact">
+                <p>Москва, ул. Мещерякова, д. 19</p>
+                <p>Москва, ул. Свободы, д. 191</p>
+                <p>+7 (000) 000-00-00</p>
+                <p>+7 (000) 000-00-00</p>
+                <p><a href="mailto:info@gemchug93.ru">info@gemchug93.ru</a></p>
+            </div>
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column links">
+                <ul>
+                    <li><a href="#">О клинике</a></li>
+                    <li><a href="#">Наши специалисты</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</html>

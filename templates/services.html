@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+    <div class="services-cards2">
+        {% block content %}
+        <div class="container2">
+            <h1>Услуги</h1>
+            <div class="search-bar2">
+                <form action="{{ url_for('services.services') }}" method="get">
+                    <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск по услугам">
+                    <button type="submit">Поиск</button>
+                </form>
+            </div>
+            <div class="services-container2">
+                {% if services %}
+                    {% for service in services %}
+                        <div class="service-card2">
+                            <img src="{{ url_for('static', filename=service.img) }}" alt="{{ service.service_name }}">
+                            <div class="service-info2">
+                                <h2>{{ service.service_name }}</h2>
+                                <p>{{ service.service_description }}</p>
+                                <p>Цена: {{ service.price }} руб.</p>
+                            </div>
+                            <form action="{{ url_for('cart.add_to_cart') }}" method="post" class="add-to-cart-form">
+                                <input type="hidden" name="service_id" value="{{ service.service_id }}">
+                                <input style="height: 30px; width: 100%; margin-top:20px; margin-bottom: 20px;" type="number" name="quantity" value="1" min="1" class="quantity-input">
+                                <button type="submit" class="add-to-cart-btn">Добавить в корзину</button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-services-message">Услуг не найдено</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+</body>

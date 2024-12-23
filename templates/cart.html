@@ -1,0 +1,42 @@
+<!-- cart.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Корзина</h1>
+    {% if cart_items %}
+        <div class="cart-items">
+            {% for item in cart_items.values() %}
+                <div class="cart-item-card">
+                    <img src="{{ url_for('static', filename=item.img) }}" alt="{{ item.service_name }}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h3>{{ item.service_name }}</h3>
+                        <p>{{ item.service_description }}</p>
+                        <p>Цена за единицу: {{ item.price }} руб.</p>
+                        <form action="{{ url_for('cart.update_cart') }}" method="post" class="update-cart-form">
+                            <input type="hidden" name="service_id" value="{{ item.service_id }}">
+                            <label for="quantity">Количество:</label>
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="quantity-input">
+                            <button type="submit" class="update-btn">Обновить</button>
+                        </form>
+                    </div>
+                    <div class="cart-item-total">
+                        <p>Всего: {{ item.price * item.quantity }} руб.</p>
+                        <form action="{{ url_for('cart.remove_from_cart') }}" method="post" class="remove-cart-form">
+                            <input type="hidden" name="service_id" value="{{ item.service_id }}">
+                            <button type="submit" class="remove-btn">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="cart-summary">
+            <p>Общая цена: {{ total_price }} руб.</p>
+            <button class="checkout-btn">Оплатить</button>
+        </div>
+    {% else %}
+        <p>Корзина пуста.</p>
+    {% endif %}
+</div>
+{% endblock %}

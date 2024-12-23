@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registration-form" onsubmit="validateForm(event)" action="/register" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <span id="nameError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span id="emailError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="phone" id="phone" name="phone">
+                <span id="phoneError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span id="passwordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="repeat_password">Repeat Password:</label>
+                <input type="password" id="repeat_password" name="repeat_password">
+                <span id="repeatPasswordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label>Register as:</label><br>
+                <input type="radio" id="visitor" name="userType" value="visitor">
+                <label id = 'vst' for="visitor">Visitor</label><br>
+                <input type="radio" id="employer" name="userType" value="employer">
+                <label id = 'emp' for="employer">Employer</label>
+                <span id="userTypeError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="heardAbout">How did you hear about us?</label>
+                <select id="heardAbout" name="heardAbout">
+                    <option value="">Select one</option>
+                    <option value="google">Google</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="friend">Friend</option>
+                    <option value="other">Other</option>
+                </select>
+                <span id="heardAboutError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="privacy" name="privacy">
+                <label for="privacy">I agree to the 
+                    <a href="https://cleversite.ru/Confidential.pdf" target="_blank">privacy policy</a> 
+                    and terms.
+                </label>
+                <span id="privacyError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+        <div id="successMessage" class="success-message"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

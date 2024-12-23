@@ -1,0 +1,21 @@
+<!-- profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="{{ user.avatar_url }}" alt="Avatar" class="profile-avatar">
+        <h2>{{ user.username }}</h2>
+    </div>
+    <div class="profile-details">
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+
+    </div>
+    <div class="profile-actions">
+        <a href="{{ url_for('auth.logout') }}" class="btn logout-btn">Выйти</a>
+
+    </div>
+</div>
+{% endblock %}

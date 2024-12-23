@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="doctor-cards">
+        {% if specialists %}
+            {% for doctor in specialists %}
+                <div class="doctor-card">
+                    <img src="{{ url_for('static', filename=doctor.img) }}" alt="{{ doctor.name }}">
+                    <h2>{{ doctor.name }}</h2>
+                    <p>{{ doctor.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No specialists data available.</p>
+        {% endif %}
+    </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,121 @@
+/* Styles for the services page */
+.container2 {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.search-bar2 {
+    margin-bottom: 30px;
+}
+
+.search-bar2 input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar2 button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar2 button:hover {
+    background-color: #0056b3;
+}
+
+.services-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card2 {
+    flex: 1 1 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.service-card2 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-info2 {
+    padding: 15px;
+}
+
+.service-info2 h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.service-info2 p {
+    font-size: 1em;
+    color: #666;
+}
+
+.no-services-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #999;
+    margin-top: 50px;
+}
+
+.services-container2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 100px;
+}
+
+.service-card2 {
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #f9f9f9; /* Optional: for visual boundary */
+}
+
+.service-card2 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-info2 {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .services-container2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-card2 {
+    min-height: 350px; /* Adjust based on design */
+    min-width: 400px;
+}
+
+/* Стили для кнопки "Добавить в корзину" */
+.add-to-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Синий цвет */
+    color: white; /* Белый текст */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3; /* Темно-синий цвет при наведении */
+}

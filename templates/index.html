@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="slide">
+                <img src="https://gemchug93.ru/upload/iblock/a22/g8ff7nthcgi5b320a4p2tvago6japb85/banner-1.jpg" alt="Вход в клинику">
+            </div>
+            <div class="slide">
+                <img src="https://gemchug93.ru/upload/iblock/736/g27boirtkg547xntkpk0vx412paao57a/banner-2.jpg" alt="Ресепшн">
+            </div>
+            <div class="slide">
+                <img src="https://gemchug93.ru/upload/iblock/c33/dthikrrsj5e1pggt90gluyu12elabref/banner-4.jpg" alt="Холл">
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+        <button class="slider-btn prev">&#10094;</button>
+        <button class="slider-btn next">&#10095;</button>
+    </div>
+
+    <script>
+        // Простой слайдер
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.style.transform = `translateX(-${n * 100}%)`;
+            });
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[n].classList.add('active');
+        }
+
+        prev.addEventListener('click', () => {
+            currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+            showSlide(currentSlide);
+        });
+
+        next.addEventListener('click', () => {
+            currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+            showSlide(currentSlide);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+
+        
+    <section class="services1">
+        <div class="services-header">
+            <h2 class="services-title">СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ</h2>
+            <a href="#" class="services-all">ВЕСЬ СПЕКТР УСЛУГ</a>
+        </div>
+        
+        <div class="services-grid1">
+            <button class="slider-arrow arrow-prev1">←</button>
+            <div class="services-slider1">
+
+                <article class="service-card1">
+                    <img src="https://gemchug93.ru/upload/iblock/a92/p1.jpg" alt="Лечение зубов под наркозом" class="service-image1">
+                    <div class="service-content1">
+                        <h3 class="service-title1">ЛЕЧЕНИЕ ЗУБОВ ПОД НАРКОЗОМ</h3>
+                        <p class="service-text1">Стоматология в Тушино «Жемчуг» – лечение под общим наркозом, одна из редких возможностей, предоставляемых Московскими стоматологами...</p>
+                        <a href="#" class="service-button1">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+        
+                <article class="service-card1">
+                    <img src="https://gemchug93.ru/upload/iblock/d1a/p2.jpg" alt="Детская стоматология" class="service-image1">
+                    <div class="service-content1">
+                        <h3 class="service-title1">ДЕТСКАЯ СТОМАТОЛОГИЯ</h3>
+                        <p class="service-text1">Стоматология (Тушино) «Жемчуг» рада представить обновленный детский кабинет. Мы работаем с детьми, и в отличие от некоторых других...</p>
+                        <a href="#" class="service-button1">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+        
+                <article class="service-card1">
+                    <img src="https://gemchug93.ru/upload/iblock/fce/p8.jpg" alt="Хирургическая стоматология" class="service-image1">
+                    <div class="service-content1">
+                        <h3 class="service-title1">ХИРУРГИЧЕСКАЯ СТОМАТОЛОГИЯ</h3>
+                        <p class="service-text1">В стоматологии в Тушино "Жемчуг", в тех случаях, когда поверхностное лечение уже не помогает – на помощь приходят стоматологи хирурги...</p>
+                        <a href="#" class="service-button1">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+        
+                <article class="service-card1">
+                    <img src="https://gemchug93.ru/upload/iblock/13c/p3.jpg" alt="Терапевтическая стоматология" class="service-image1">
+                    <div class="service-content1">
+                        <h3 class="service-title1">ТЕРАПЕВТИЧЕСКАЯ СТОМАТОЛОГИЯ</h3>
+                        <p class="service-text1">Пломбирование зубов – одна из самых востребованных стоматологических операций. Сколько раз вам и вашим детям приходилось страдать...</p>
+                        <a href="#" class="service-button1">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+
+                <article class="service-card1">
+                    <img src="https://gemchug93.ru/upload/iblock/13c/p3.jpg" alt="Терапевтическая стоматология" class="service-image1">
+                    <div class="service-content1">
+                        <h3 class="service-title1">РЕНТГЕНОЛОГИЯ</h3>
+                        <p class="service-text1">
+                            Диагностика – одна из самых сложных областей медицины. Для того чтобы составить точную картину болезни необходимо досконально знать быт пациента и генетические предрасположенности. </p>
+                        <a href="#" class="service-button1">ПОДРОБНЕЕ</a>
+                    </div>
+                </article>
+
+                
+            </div>
+
+            <button class="slider-arrow arrow-next1">→</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.services-slider1');
+            const cards = document.querySelectorAll('.service-card1');
+            const prevBtn = document.querySelector('.arrow-prev1');
+            const nextBtn = document.querySelector('.arrow-next1');
+            
+            let currentIndex = 0;
+            const cardWidth = cards[0].getBoundingClientRect().width + 20;
+            const visibleCards = 4;
+            const maxIndex = Math.ceil(cards.length / visibleCards) - 1;
+
+            function updateSliderPosition() {
+                slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+
+            function updateButtonState() {
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+                prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+                prevBtn.style.position = "absolute";
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSliderPosition();
+                    updateButtonState();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateSliderPosition();
+                    updateButtonState();
+                }
+            });
+
+            // Initialize button states
+            updateButtonState();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const newCardWidth = cards[0].offsetWidth + 20;
+                if (newCardWidth !== cardWidth) {
+                    currentIndex = 0;
+                    updateSliderPosition();
+                    updateButtonState();
+                }
+            });
+        });
+
+    </script>
+    
+
+    <div class="content">
+        <h1>СТОМАТОЛОГИЯ В ТУШИНО «ЖЕМЧУГ»</h1>
+        <p>Стоматология в Тушино «Жемчуг» – лечим зубы с 1993 года. Одна из редких возможностей, предоставляемых Тушинской стоматологией «Жемчуг» – лечение под общим наркозом. Наши врачи стоматологи – стоматологи высшей квалификации.</p>
+        <p>Уже в течении 27 лет стоматология «Жемчуг» дарит своим пациентам здоровье и красивую улыбку. Наши гости уходят здоровыми и рассказывают о нас друзьям – так растёт наша востребованность. Мы гордимся тем, насколько вырос за эти годы наш штат стоматологов. Гордимся тем, что объединяем в своей команде несколько десятков отличных специалистов и энтузиастов своего дела. В 2017 году был проведён технический ребрэндинг – было создано детское отделение, закуплена новая техника в другие подразделения.</p>
+        <p>В нашем новом детском кабинете стоматологии на улице Свободы квалифицированные детские стоматологи сделают все возможное, чтобы поход к врачу ассоциировался у растущего человека не с тревогой и страхом, а с радостью и чувством приятной заботы</p>
+        <p>В проведении всесторонней диагностики очень помогает рентген-кабинет, с помощью которого можно отследить мельчайшие подробности состояния организма. Во многих случаях возможно лечение под наркозом – стоматология «Жемчуг» на улице Свободы имеет всё необходимое оборудование для подобных операций, а наши лечащие врачи стоматологи обладают всеми необходимыми квалификациями.</p>
+    </div>
+
+</body>
+
+{% endblock %}

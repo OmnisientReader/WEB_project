@@ -1,0 +1,42 @@
+<!-- authorize.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма Авторизации</title>
+    <link rel="stylesheet" href="/static/authorize.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Форма Авторизации</h2>
+        <form id="login-form" action="/login_submit" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <span id="passwordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Войти">
+            </div>
+        </form>
+        <div id="successMessage" class="success-message"></div>
+        <!-- Display flashed messages if any (useful for non-AJAX submissions) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <script src="/static/authorize.js"></script>
+</body>
+</html>

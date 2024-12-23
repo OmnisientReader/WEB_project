@@ -1,0 +1,118 @@
+/* Base font settings */
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for review cards */
+.review-cards {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Individual review card */
+.review-card {
+    width: 90%;
+    margin-left: 5%;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    flex: 1 1 300px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Reviewer's name */
+.review-card h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Review text */
+.review-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Hover effect for review cards */
+.review-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #e5e5e5;
+}
+
+/* Responsive layout for screens smaller than 768px */
+@media (max-width: 768px) {
+    .review-card {
+        flex: 1 1 100%;
+    }
+}
+
+.content {
+    max-width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Georgia', serif;
+    min-height: 700px;
+    padding-top: 50px;
+}
+
+.content h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.content p {
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        max-width: 600px;
+    }
+    .content h1 {
+        font-size: 40px;
+    }
+    .content p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        max-width: 400px;
+    }
+    .content h1 {
+        font-size: 40px;
+    }
+    .content p {
+        font-size: 20px;
+    }
+}
+
+.comment-form {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+}
+.form-group label {
+    font-weight: bold;
+}
+.btn-primary {
+    margin-top: 10px;
+}
